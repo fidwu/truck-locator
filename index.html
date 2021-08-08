@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <link href="styles/styles.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.js"></script>
+        <script type="text/javascript" src="scripts/scripts.js"></script>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggle">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand d-none d-sm-block" href="#">
+                    <!-- hide for mobile -->
+                    <img src="./assets/rioseo-logo.png" alt="rioseo-logo" width="auto" height="35px">
+                </a>
+                <a class="navbar-brand d-sm-none d-block mx-auto" href="#" class="d-sm-none d-block mx-auto">
+                    <!-- logo mobile version -->
+                    <img src="./assets/rioseo-logo-mobile.png" alt="rioseo-logo-mobile" width="auto" height="auto">
+                </a>
+                <div class="navbar-brand d-sm-none d-block navbar-location-icon">
+                    <img src="./assets/location-icon.png" alt="location-icon" width="30">
+                </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbar-toggle">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#">
+                                <img src="./assets/location-icon.png" alt="location" />
+                                Truck Locator
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <p class="title">Found 20 Taco Trucks</p>
+
+        <div class="wrapper">
+            <div class="data" id="truckData">
+            </div>
+    
+            <div id="truckInfo" class="d-none d-sm-block">
+                <div class="modal" id="modal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body" id="modalBody">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-sm-none d-block list-map-btn">
+            <div class="btn-group w-100 h-100" id="toggle-list-map">
+                <button class="btn list-btn btn-active" id="list-btn" onclick="toggleDisplay('list-btn')" data-toggle="button">List</button>
+                <button class="btn map-btn" id="map-btn" onclick="toggleDisplay('map-btn')" data-toggle="button">Map</button>
+            </div>
+        </div>
+    </body>
+</html>
