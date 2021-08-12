@@ -28,8 +28,8 @@
     position: relative;
 }
 
-/* Screens greater than 575 - account for font size */
-@media only screen and (min-width: 575px) {
+/* Screens greater than 576 - account for font size */
+@media only screen and (min-width: 576px) {
     .title {
         font-size: 2em;
         margin-left: 15px;

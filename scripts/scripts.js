@@ -88,7 +88,7 @@ $(document).ready(function() {
         // create map iframe
         console.log("show map function");
 
-        if (window.innerWidth <= 575) {
+        if (window.innerWidth <= 576) {
             toggleDisplay('map-btn');
         }
 
@@ -110,7 +110,7 @@ $(document).ready(function() {
 
     showInfo = (response) => {
 
-        if (window.innerWidth <= 575) {
+        if (window.innerWidth <= 576) {
             toggleDisplay('map-btn');
         }
 
@@ -152,55 +152,22 @@ $(document).ready(function() {
         // display hours for each day
         const hours = document.createElement("div");
         hours.className = "my-3";
-        const monday = document.createElement("div");
-        monday.innerHTML = `
-            <div class="row">
-                <div class="col-4">Monday</div>
-                <div class="col">${response.monday_open} - ${response.monday_close}</div>
-            </div>
-        `;
-        const tuesday = document.createElement("div");
-        tuesday.innerHTML = `
-            <div class="row">
-                <div class="col-4">Tuesday</div>
-                <div class="col">${response.tuesday_open} - ${response.tuesday_close}</div>
-            </div>
-        `;
-        const wednesday = document.createElement("div");
-        wednesday.innerHTML = `
-            <div class="row">
-                <div class="col-4">Wednesday</div>
-                <div class="col">${response.wednesday_open} - ${response.wednesday_close}</div>
-            </div>
-        `;
-        const thursday = document.createElement("div");
-        thursday.innerHTML = `
-            <div class="row">
-                <div class="col-4">Thursday</div>
-                <div class="col">${response.thursday_open} - ${response.thursday_close}</div>
-            </div>
-        `;
-        const friday = document.createElement("div");
-        friday.innerHTML = `
-            <div class="row">
-                <div class="col-4">Friday</div>
-                <div class="col">${response.friday_open} - ${response.friday_close}</div>
-            </div>
-        `;
-        const saturday = document.createElement("div");
-        saturday.innerHTML = `
-            <div class="row">
-                <div class="col-4">Saturday</div>
-                <div class="col">${response.saturday_open} - ${response.saturday_close}</div>
-            </div>
-        `;
-        const sunday = document.createElement("div");
-        sunday.innerHTML = `
-            <div class="row">
-                <div class="col-4">Sunday</div>
-                <div class="col">${response.sunday_open} - ${response.sunday_close}</div>
-            </div>
-        `;
+
+        const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+        for (let i = 0; i < daysOfWeek.length; i++) {
+            const dayOpenTime = daysOfWeek[i].toLowerCase() + "_open";
+            const dayCloseTime = daysOfWeek[i].toLowerCase() + "_close";
+
+            const dayHours = document.createElement("div");
+            dayHours.innerHTML = `
+                <div class="row">
+                    <div class="col-4">${daysOfWeek[i]}</div>
+                    <div class="col">${response[dayOpenTime]} - ${response[dayCloseTime]}</div>
+                </div>
+            `;
+
+            hours.append(dayHours);
+        }
 
         const viewFullBtn = document.createElement("button");
         viewFullBtn.className = "btn mt-2";
@@ -208,8 +175,6 @@ $(document).ready(function() {
         viewFullBtn.onclick = function() {
             window.open(response.url);
         };
-        
-        hours.append(monday, tuesday, wednesday, thursday, friday, saturday, sunday);
 
         modalBody.append(image, truckName, truckAddress1, truckAddress2, row, hours, viewFullBtn);
 
@@ -232,7 +197,7 @@ $(document).ready(function() {
         }
 
         // make map button active -> display map/more info
-        else if (showId === "map-btn" && listBtn.classList.contains("btn-active")){
+        else if (showId === "map-btn" && listBtn.classList.contains("btn-active")) {
             listBtn.classList.remove("btn-active");
             mapBtn.classList.add("btn-active");
             truckData.className = "d-none d-sm-block"; // hide
